@@ -93,8 +93,8 @@ int changer(unsigned char *data, int pay_len){ //packet check and changer
     cmp = 0;
     int cnt = 0;
     int e_size = 14;
-    int ip_size = (uint8_t(data[0]) & 0x0F) * 4;
-    int tcp_size = ((uint8_t(data[e_size+ip_size-2]) & 0xF0) >> 4) * 4;
+    int ip_size = (u_int8_t(data[0]) & 0x0F) * 4;
+    int tcp_size = ((u_int8_t(data[e_size+ip_size-2]) & 0xF0) >> 4) * 4;
 
     u_int64_t cmpsip, cmpdip;
     u_int16_t cmpsport, cmpdport;
@@ -240,8 +240,8 @@ static u_int32_t print_pkt (struct nfq_data *tb) //return packet id
     ret1 = nfq_get_payload(tb, &data1); //new packet get payload ret
     cmp = changer(data, ret); //return cmp
 
-    u_short ipchecksum = ip_checksum(data1); //check checksum
-    u_short tcpchecksum = tcp_checksum(data1, ret1);
+    u_int16_t ipchecksum = ip_checksum(data1); //check checksum
+    u_int16_t tcpchecksum = tcp_checksum(data1, ret1);
     data1[IPCHECKSUM] = (ipchecksum & 0xFF00)>>8;
     data1[IPCHECKSUM+1] = ipchecksum & 0x00FF;
     data1[TCPCHECKSUM] = (tcpchecksum & 0xFF00)>>8;
@@ -266,7 +266,7 @@ static int cb(struct nfq_q_handle *qh, struct nfgenmsg *nfmsg,
         if(cmp==1){
             printf("This packet is Changed! \n");
             dump(data1,ret1);
-            return nfq_set_verdict(qh, id, NF_ACCEPT, uint32_t(ret1), data1);
+            return nfq_set_verdict(qh, id, NF_ACCEPT, u_int32_t(ret1), data1);
         }
         else {
             return nfq_set_verdict(qh, id, NF_ACCEPT, 0, nullptr);
