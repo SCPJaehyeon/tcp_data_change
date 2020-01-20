@@ -6,6 +6,8 @@ BOB 8th - Network(3rd stage)
 #### Usage
 
 ```shell
+iptables -A INPUT -j NFQUEUE
+iptables -A OUTPUT -j NFQUEUE
 ./tcp_data_change [From_String] [To_String]
 ```
 
