@@ -52,5 +52,5 @@ u_int16_t tcp_checksum(u_char *data,int pay_len){ //check tcp checksum
     }
     sum = ~sum;
 
-    return u_short(sum);
+    return u_int16_t(sum);
 }
