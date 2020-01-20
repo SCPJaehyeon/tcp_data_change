@@ -181,16 +181,6 @@ int changer(unsigned char *data, int pay_len){ //packet check and changer
     return cmp;
 }
 
-void dump(unsigned char* buf, int size) { //show hex
-    int i;
-    for (i = 0; i < size; i++) {
-        if (i % 16 == 0)
-            printf("\n");
-        printf("%02x ", buf[i]);
-    }
-    printf("\n");
-}
-
 static u_int32_t print_pkt (struct nfq_data *tb) //return packet id
 {
     u_int32_t id = 0;
@@ -265,7 +255,6 @@ static int cb(struct nfq_q_handle *qh, struct nfgenmsg *nfmsg,
     printf("entering callback\n");
         if(cmp==1){
             printf("This packet is Changed! \n");
-            dump(data1,ret1);
             return nfq_set_verdict(qh, id, NF_ACCEPT, u_int32_t(ret1), data1);
         }
         else {
