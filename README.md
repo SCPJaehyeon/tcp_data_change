@@ -13,12 +13,8 @@ iptables -A OUTPUT -j NFQUEUE
 
 
 
-##### Picture > ./tcp_data_change facebook youtube
+##### Picture > ./tcp_data_change facebook fakebooks
 
-<img width="413" alt="cap1" src="https://user-images.githubusercontent.com/50411472/72238722-f4f8fb00-3621-11ea-8024-56e185e16af9.PNG">
+<img width="235" alt="1" src="https://user-images.githubusercontent.com/50411472/72728934-ce166800-3bd1-11ea-8ffb-10f600702521.PNG">
 
-<img width="405" alt="cap2" src="https://user-images.githubusercontent.com/50411472/72238733-fcb89f80-3621-11ea-835e-c45b367d75f7.PNG">
-
-<img width="426" alt="cap3" src="https://user-images.githubusercontent.com/50411472/72238741-02ae8080-3622-11ea-8989-34f856e3297c.PNG">
-
-<img width="426" alt="cap4" src="https://user-images.githubusercontent.com/50411472/72238747-093cf800-3622-11ea-9602-1596f0d924eb.PNG">
+<img width="282" alt="2" src="https://user-images.githubusercontent.com/50411472/72728936-cf479500-3bd1-11ea-9240-cf91b8bccac0.PNG">
