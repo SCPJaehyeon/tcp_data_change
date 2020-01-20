@@ -1,4 +1,4 @@
-#include "header.h"
+#include "header/header.h"
 
 void Usage(char *argv[]){
     printf("Usage : %s [From String] [To String]\n", argv[0]);
